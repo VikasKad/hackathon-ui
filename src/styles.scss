@@ -1,0 +1,101 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// @import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "~@angular/material/theming";
+@include mat-core();
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+$primary: mat-palette($mat-pink, 600);
+$accent: mat-palette($mat-pink, 100);
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+
+// custom
+body {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+$primary-color: mat-color($primary);
+$background-color: rgb(237, 237, 237);
+$secondary-background-color: #f8f8f8;
+.material-icons {
+  font-family: "Material Icons" !important;
+}
+
+.loading-container {
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #506a91;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+.nav-container {
+  width: 100%;
+  display: flex;
+}
+.cust-360 {
+  width: 30%;
+  text-align: left;
+  display: flex;
+}
+.welcome-cont {
+  width: 68%;
+  text-align: right;
+  display: inline;
+}
+span.right.btn {
+  padding-right: 5px;
+  padding-left: 15px;
+}
+.pad-lef{
+  padding-left: 10px;
+}

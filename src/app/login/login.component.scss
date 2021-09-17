@@ -1,0 +1,38 @@
+.login-text {
+  display: flex;
+  justify-content: center;
+}
+
+.login-container {
+  display: flex;
+  background: #506a91;
+  height: 100%;
+}
+
+.logo-sectiion {
+  width: 60%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.login-section {
+  display: flex;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-btn {
+  background: #506a91;
+}
+
+.example-card {
+  width: 90%;
+}
+
+.welcome-txt {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+}

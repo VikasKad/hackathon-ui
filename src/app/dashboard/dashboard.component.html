@@ -1,0 +1,502 @@
+<div class="section-container" *ngIf="!isLoading">
+    <!-- section customer-name -->
+    <mat-card class="example-card account-details customer-name-section">
+        <div class="title-section">
+            <span>{{customerData?.customer_name}}</span>
+            <div class="channel-list-container">
+                <i class="fa fa-mobile"
+                    matTooltip="{{randomChannelValues[0]?'Mobile Chanel is enabled':'Mobile Chanel is disabled'}}"
+                    [ngClass]="{'enabled-color':randomChannelValues[0],'disabled-color':!randomChannelValues[0]}"
+                    aria-hidden="true"></i>
+                <i class="fa fa-envelope"
+                    matTooltip="{{randomChannelValues[1]?'Email Chanel is enabled':'Email Chanel is disabled'}}"
+                    [ngClass]="{'enabled-color':randomChannelValues[1],'disabled-color':!randomChannelValues[1]}"
+                    aria-hidden="true"></i>
+                <i class="fa fa-whatsapp"
+                    matTooltip="{{randomChannelValues[2]?'Whatsapp Chanel is enabled':'Whatsapp Chanel is disabled'}}"
+                    [ngClass]="{'enabled-color':randomChannelValues[2],'disabled-color':!randomChannelValues[2]}"
+                    aria-hidden="true"></i>
+                <i class="fa fa-phone"
+                    matTooltip="{{randomChannelValues[3]?'Call Chanel is enabled':'Call Chanel is disabled'}}"
+                    [ngClass]="{'enabled-color':randomChannelValues[3],'disabled-color':!randomChannelValues[3]}"
+                    aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="divide-container"></div>
+        <div class="customer-details-section">
+            <div class="detail-item">
+                <span class="details-key key-color"> Customer ID: </span>
+                <span class="details-value val-color">{{customerData?.ncodpers}}</span>
+            </div>
+            <div class="detail-item">
+                <span class="details-key key-color"> Nationality: </span>
+                <span class="details-value val-color">
+                    {{customerData?.nationality}}
+                </span>
+            </div>
+        </div>
+        <div class="customer-details-section">
+
+            <div class="detail-item">
+                <span class="details-key key-color"> Segment: </span>
+                <span class="details-value val-color">
+                    {{customerData?.segmento}}
+                </span>
+            </div>
+            <div class="detail-item">
+                <span class="details-key key-color"> Activity Index: </span>
+                <span class="details-value val-color">
+                    {{customerData?.ind_actividad_cliente}}
+                </span>
+            </div>
+        </div>
+        <div class="customer-details-section">
+
+            <div class="detail-item">
+                <span class="details-key key-color"> Sex: </span>
+                <span class="details-value val-color">
+                    {{customerData?.sexo}}
+                </span>
+            </div>
+            <div class="detail-item">
+                <span class="details-key key-color"> Age: </span>
+                <span class="details-value val-color">
+                    {{customerData?.age?customerData?.age:'Not
+                    Available'}}
+                </span>
+            </div>
+        </div>
+    </mat-card>
+
+    <!-- section next-best-action -->
+    <mat-card class="example-card account-details next-best-action-section">
+        <div class="section-header">
+            <span>Next Best Action</span>
+        </div>
+        <div class="divide-container"></div>
+
+        <mat-card-content>
+            <div class="nba-list-container">
+                <div class="nba-list-item" *ngFor="let item of customerDetails?.nba_section?.offer">
+                    <div matTooltip="{{item}}" class="nba-text">
+                        {{item}}
+                    </div>
+                    <div class="nba-actions">
+                        <i class="fa fa-check" aria-hidden="true" (click)="openDialog()"></i>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- section products -->
+    <mat-card class="example-card account-details products-section">
+        <div class="section-header">
+            <span>Products</span>
+        </div>
+        <div class="divide-container"></div>
+
+        <mat-card-content>
+            <div class="channel-list-container product-list">
+                <span class="" *ngFor="let item of customerDetails?.product_section | keyvalue">
+                    <i *ngIf="item.key==='Saving Account'" class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Guarantees'" matTooltip="Guarantees" class="fa fa-handshake-o"
+                        aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Current Accounts'" matTooltip="Current Accounts" class="fa fa-user-o"
+                        aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Derivada Account'" matTooltip="Derivada Account" class="fa fa-money"
+                        aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Payroll Account'" matTooltip="Payroll Account" class="fa fa-users"
+                        aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Junior Account'" matTooltip="Junior Account" class="fa fa-child"
+                        aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Más particular Account'" matTooltip="Más particular Account"
+                        class="fa fa-bullseye" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='particular Account'" matTooltip="particular Account"
+                        class="fa fa-product-hunt" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='particular Plus Account'" matTooltip="particular Plus Account"
+                        class="fa fa-plus-circle" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Short-term deposits'" matTooltip="Short-term deposits"
+                        class="fa fa-circle-thin" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Medium-term deposits'" matTooltip="Medium-term deposits"
+                        class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Long-term deposits'" matTooltip="Long-term deposits" class="fa fa-circle"
+                        aria-hidden="true"></i>
+                    <i *ngIf="item.key==='e-account'" matTooltip="e-account" class="fa fa-edge" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Funds'" matTooltip="Funds" class="fa fa-suitcase" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Mortgage'" matTooltip="Mortgage" class="fa fa-university"
+                        aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Pensions'" matTooltip="Pensions" class="fa fa-blind" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Loans'" matTooltip="Loans" class="fa fa-usd" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Taxes'" matTooltip="Taxes" class="fa fa-book" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Credit Card'" matTooltip="Credit Card" class="fa fa-credit-card"
+                        aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Securities'" matTooltip="Securities" class="fa fa-shield"
+                        aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Home Account'" matTooltip="Home Account" class="fa fa-home"
+                        aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Payroll'" matTooltip="Payroll" class="fa fa-asterisk" aria-hidden="true"></i>
+                    <i *ngIf="item.key==='Direct Debit'" matTooltip="Direct Debit" class="fa fa-credit-card-alt"
+                        aria-hidden="true"></i>
+                </span>
+                <!-- <i class="fa fa-envelope" aria-hidden="true"></i>
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                <i class="fa fa-phone" aria-hidden="true"></i> -->
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- section acoount-details-section -->
+    <mat-card class="example-card account-details acoount-details-section">
+
+        <div class="section-header">
+            <span>Account Details</span>
+        </div>
+        <div class="divide-container"></div>
+
+        <div class="acc-container">
+            <div class="item-container">
+                <div class="item-key">Gross Houseold Income</div>
+                <div class="item-value">
+                    {{(customerDetails?.account_section?.renta)?(customerDetails?.account_section?.renta):'Not
+                    Available'}}
+                </div>
+            </div>
+
+            <div class="item-container">
+                <div class="item-key">Account opening date:</div>
+                <div class="item-value">
+                    {{(customerDetails?.account_section?.fecha_alta)?(customerDetails?.account_section?.fecha_alta):'Not
+                    Available'}}
+                </div>
+            </div>
+
+            <div class="item-container">
+                <div class="item-key">Customer Type</div>
+                <div class="item-value">
+                    {{(customerDetails?.account_section?.indrel_1mes)?(customerDetails?.account_section?.indrel_1mes):'Not
+                    Available'}}
+                </div>
+            </div>
+
+            <div class="item-container">
+                <div class="item-key">Customer Relation Type</div>
+                <div class="item-value">
+                    {{(customerDetails?.account_section?.tiprel_1mes)?(customerDetails?.account_section.tiprel_1mes):'Not
+                    Available'}}
+                </div>
+            </div>
+        </div>
+        <mat-card-content>
+        </mat-card-content>
+    </mat-card>
+    <!-- section spend-analysis -->
+    <mat-card class="example-card account-details spend-analysis-section">
+        <div class="section-header">
+            <span>Spend Analysis</span>
+        </div>
+        <div class="divide-container"></div>
+
+        <mat-card-content>
+            <mat-tab-group mat-align-tabs="start">
+                <!-- #enddocregion align-start -->
+                <mat-tab label="Debit Card">
+                    <div class="spnt-cntr">
+                        <span>Total Spent:</span> <span class="total-spent">
+                            {{(customerSpend?.spend_analysis?.account_spend?.total_spend) | currency}} </span>
+                    </div>
+                    <div class="spent-items spent-analysis-cont">
+                        <div class="spent-item">
+                            <i class="fa fa-cutlery" matTooltip="Dining" aria-hidden="true"></i>
+                            <span class="spent-percentage">
+                                {{(customerSpend?.spend_analysis?.account_spend?.breakdown?.dining?(customerSpend?.spend_analysis?.account_spend?.breakdown?.dining)
+                                * 100:0)| number:'1.0-0'}} %
+                            </span>
+                        </div>
+                        <div class="spent-item">
+                            <i class="fa fa-shopping-bag" matTooltip="Shopping" aria-hidden="true"></i>
+                            <span class="spent-percentage">
+                                {{(customerSpend?.spend_analysis?.account_spend?.breakdown?.shopping?(customerSpend?.spend_analysis?.account_spend?.breakdown?.shopping)
+                                * 100:0) | number:'1.0-0'}} %
+                            </span>
+                        </div>
+                        <div class="spent-item">
+                            <i class="fa fa-shopping-cart" matTooltip="Entertainment" aria-hidden="true"></i>
+                            <span class="spent-percentage">
+                                {{(customerSpend?.spend_analysis?.account_spend?.breakdown?.entertainment?(customerSpend?.spend_analysis?.account_spend?.breakdown?.entertainment)
+                                * 100:0)| number:'1.0-0'}} %
+                            </span>
+                        </div>
+                    </div>
+                    <div class="spent-items spent-analysis-cont">
+
+                        <div class="spent-item">
+                            <i class="fa fa-credit-card" matTooltip="Bill Payment" aria-hidden="true"></i>
+                            <span class="spent-percentage">
+                                {{(customerSpend?.spend_analysis?.account_spend?.breakdown['bill
+                                payment']?(customerSpend?.spend_analysis?.account_spend?.breakdown['bill payment'])
+                                * 100:0)| number:'1.0-0'}} %
+                            </span>
+                        </div>
+                        <div class="spent-item">
+                            <i class="fa fa-heartbeat" matTooltip="Health" aria-hidden="true"></i>
+                            <span class="spent-percentage">
+                                {{(customerSpend?.spend_analysis?.account_spend?.breakdown.health?(customerSpend?.spend_analysis?.account_spend?.breakdown.health)
+                                * 100:0)| number:'1.0-0'}} %
+                            </span>
+                        </div>
+
+                        <div class="spent-item">
+                            <i class="fa fa-file-text" matTooltip="Investment" aria-hidden="true"></i>
+                            <span class="spent-percentage">
+                                {{(customerSpend?.spend_analysis?.account_spend?.breakdown.investment?(customerSpend?.spend_analysis?.account_spend?.breakdown.investment)
+                                *100:0)| number:'1.0-0'}} %
+                            </span>
+                        </div>
+                    </div>
+                    <div class="spent-items spent-analysis-cont">
+
+                        <div class="spent-item">
+                            <i class="fa fa-car" matTooltip="Auto" aria-hidden="true"></i>
+                            <span class="spent-percentage">
+                                {{(customerSpend?.spend_analysis?.account_spend?.breakdown?.auto?(customerSpend?.spend_analysis?.account_spend?.breakdown?.auto)
+                                *100:0)| number:'1.0-0'}} %
+                            </span>
+                        </div>
+
+                        <div class="spent-item">
+                            <i class="fa fa-umbrella" matTooltip="Insurance" aria-hidden="true"></i>
+                            <span class="spent-percentage">
+                                {{(customerSpend?.spend_analysis?.account_spend?.breakdown?.insurance?(customerSpend?.spend_analysis?.account_spend?.breakdown?.insurance)
+                                *100:0)| number:'1.0-0'}} %
+                            </span>
+                        </div>
+
+                        <div class="spent-item">
+                            <i class="fa fa-ellipsis-h" matTooltip="Others" aria-hidden="true"></i>
+                            <span class="spent-percentage">
+                                {{(customerSpend?.spend_analysis?.account_spend?.breakdown.others?(customerSpend?.spend_analysis?.account_spend?.breakdown.others)
+                                *100:0)| number:'1.0-0'}} %
+                            </span>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Credit Card">
+                    <div *ngIf="isCreditCardSpentAvail">
+                        <div class="spnt-cntr">
+                            <span>Total Spent:</span> <span class="total-spent">
+                                {{(customerSpend?.spend_analysis?.credit_card_spend?.total_spend) | currency}} </span>
+                        </div>
+                        <div class="spent-items spent-analysis-cont">
+                            <div class="spent-item">
+                                <i class="fa fa-cutlery" matTooltip="Dining" aria-hidden="true"></i>
+                                <span class="spent-percentage">
+                                    {{(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.dining?(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.dining)
+                                    * 100:0)| number:'1.0-0'}} %
+                                </span>
+                            </div>
+                            <div class="spent-item ">
+                                <i class="fa fa-shopping-bag" matTooltip="Shopping" aria-hidden="true"></i>
+                                <span class="spent-percentage">
+                                    {{(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.entertainment?(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.shopping)
+                                    * 100:0) | number:'1.0-0'}} %
+                                </span>
+                            </div>
+                            <div class="spent-item">
+                                <i class="fa fa-shopping-cart" matTooltip="Entertainment" aria-hidden="true"></i>
+                                <span class="spent-percentage">
+                                    {{(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.entertainment?(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.entertainment)
+                                    * 100:0)| number:'1.0-0'}} %
+                                </span>
+                            </div>
+                        </div>
+                        <div class="spent-items spent-analysis-cont">
+
+                            <div class="spent-item">
+                                <i class="fa fa-credit-card" matTooltip="Bill Payment" aria-hidden="true"></i>
+                                <span class="spent-percentage">
+                                    {{(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.entertainment?(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.entertainment)
+                                    * 100:0)| number:'1.0-0'}} %
+                                </span>
+                            </div>
+                            <div class="spent-item">
+                                <i class="fa fa-heartbeat" matTooltip="Health" aria-hidden="true"></i>
+                                <span class="spent-percentage">
+                                    {{(customerSpend?.spend_analysis?.credit_card_spend?.breakdown.health?(customerSpend?.spend_analysis?.credit_card_spend?.breakdown.health)
+                                    * 100:0)| number:'1.0-0'}} %
+                                </span>
+                            </div>
+
+                            <div class="spent-item">
+                                <i class="fa fa-file-text" matTooltip="Investment" aria-hidden="true"></i>
+                                <span class="spent-percentage">
+                                    {{(customerSpend?.spend_analysis?.credit_card_spend?.breakdown.investment?(customerSpend?.spend_analysis?.credit_card_spend?.breakdown.investment)
+                                    *100:0)| number:'1.0-0'}} %
+                                </span>
+                            </div>
+                        </div>
+                        <div class="spent-items spent-analysis-cont">
+
+                            <div class="spent-item">
+                                <i class="fa fa-car" matTooltip="Auto" aria-hidden="true"></i>
+                                <span class="spent-percentage">
+                                    {{(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.auto?(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.auto)
+                                    *100:0)| number:'1.0-0'}} %
+                                </span>
+                            </div>
+
+                            <div class="spent-item">
+                                <i class="fa fa-umbrella" matTooltip="Insurance" aria-hidden="true"></i>
+                                <span class="spent-percentage">
+                                    {{(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.insurance?(customerSpend?.spend_analysis?.credit_card_spend?.breakdown?.insurance)
+                                    *100:0)| number:'1.0-0'}} %
+                                </span>
+                            </div>
+
+                            <div class="spent-item">
+                                <i class="fa fa-ellipsis-h" matTooltip="Others" aria-hidden="true"></i>
+                                <span class="spent-percentage">
+                                    {{(customerSpend?.spend_analysis?.credit_card_spend?.breakdown.other?(customerSpend?.spend_analysis?.credit_card_spend?.breakdown.other)
+                                    *100:0)| number:'1.0-0'}} %
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center-item" *ngIf="!isCreditCardSpentAvail">
+                        <p>No Credit card available </p>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card-content>
+    </mat-card>
+    <!-- section offers -->
+    <mat-card class="example-card account-details offers-section">
+        <div class="section-header">
+            <span>Offers</span>
+        </div>
+        <div class="divide-container"></div>
+
+        <mat-card-content>
+
+            <mat-tab-group mat-align-tabs="start">
+                <!-- #enddocregion align-start -->
+                <mat-tab label="Product">
+                    <div class="offer-list-item" *ngFor="let item of getOffers(customerDetails?.offers?.product_offers)">
+                        <div class="offer-item nba-text">
+                            <span>{{item}}</span>
+                        </div>
+                        <div class="offer-actions nba-actions">
+                            <i class="fa fa-check" aria-hidden="true" (click)="openDialog()"></i>
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Merchant">
+                    <div class="offer-list-item" *ngFor="let item of getOffers(customerSpend?.merchant_offers)">
+                        <div class="offer-item nba-text">
+                            <span>{{item}}</span>
+                        </div>
+                        <div class="offer-actions nba-actions">
+                            <i class="fa fa-check" aria-hidden="true" (click)="openDialog()"></i>
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+
+        </mat-card-content>
+    </mat-card>
+    <!-- section product-details -->
+    <mat-card class="example-card account-details product-details-section">
+        <div class="section-header">
+            <span>Product Details</span>
+        </div>
+        <div class="divide-container"></div>
+        <div class="Total Count">Total Products: {{productCount}}</div>
+
+        <mat-card-content>
+            <div class="prod-list">
+                <div class="prod-list-item" *ngFor="let item of customerDetails?.product_details_section |keyvalue">
+                    {{item.key}} - {{item.value}}
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <!-- section eligible-product -->
+    <mat-card class="example-card account-details eligible-product-section">
+        <div class="section-header">
+            <span>Eligible Products</span>
+        </div>
+        <div class="divide-container"></div>
+        <mat-card-content>
+            <div class="row-header">
+                <div class=" row-item propensity-header">
+                    Name
+                </div>
+                <div class="row-item propensity-header">
+                    Propensity
+                </div>
+                <div class="row-item prop-actions">
+                    Actions
+                </div>
+            </div>
+            <div class="eligible-list" *ngFor="let item of customerDetails?.eligible_section | keyvalue">
+                <div class="eligible-list-item propensity-item">
+                    <span>{{item.key}}</span>
+                </div>
+                <div class="eligible-list-item propensity-val">
+                    <span>{{(item.value)+'%'}}</span>
+
+                </div>
+                <div class="eligible-list-item propensity-actions">
+                    <i class="fa fa-check" aria-hidden="true" (click)="openDialog()"></i>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <!-- section relationship -->
+    <mat-card class="example-card account-details relationship-section">
+        <div class="section-header">
+            <span>Relationship</span>
+        </div>
+        <div class="divide-container"></div>
+        <mat-card-content *ngIf="isRelationshipAvail">
+            <div class="row-header">
+                <div class="propensity-header">
+                    Name
+                </div>
+                <div class="propensity-header">
+                    Relation
+                </div>
+                <div class="prop-actions">
+                    Products
+                </div>
+            </div>
+            <div class="eligible-list" *ngFor="let item of customerRelationship">
+                <div class="eligible-list-item propensity-item">
+                    <span>{{item?.name}}</span>
+                </div>
+                <div class="eligible-list-item propensity-val">
+                    <span>{{item?.relation}}</span>
+
+                </div>
+                <div class="eligible-list-item propensity-actions">
+                    {{item?.products?.length}}
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-content *ngIf="!isRelationshipAvail">
+            <p>No Relationship Found</p>
+        </mat-card-content>
+    </mat-card>
+
+</div>
+<div *ngIf="isLoading" class="loading-container">
+    <div class="lds-facebook">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>

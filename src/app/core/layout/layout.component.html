@@ -1,0 +1,21 @@
+<mat-toolbar class="mat-elevation-z8">
+    <div class="nav-container">
+        <div class="cust-360" routerLink="/customers">
+            <img src="assets/lets-solve.png" height="25px" style="padding-top: 5px;">
+            <span class="pad-lef">
+                Customer 360&#176;
+            </span>
+        </div>
+        <div class="welcome-cont">
+            Welcome {{loggedInUser}}
+            <span class="right btn" style="cursor: pointer;" (click)="logout()">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </span>
+        </div>
+    </div>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>    

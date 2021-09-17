@@ -1,0 +1,226 @@
+mat-card.mat-card.mat-focus-indicator.example-card {
+  display: inline-block;
+  margin: 10px;
+}
+
+.divide-container {
+  height: 1px;
+  background: gray;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.title-section {
+  display: flex;
+  font-size: 20px !important;
+  font-weight: bold;
+  justify-content: space-between;
+}
+
+.customer-details-section {
+  justify-content: space-between;
+  display: flex !important;
+  width: 95%;
+
+  span {
+    padding-left: 5px;
+  }
+}
+
+.customer-basic-details-section {
+  max-width: 42%;
+  min-width: 42%;
+}
+
+.section-container {
+  /* border: 1px solid red; */
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+  background: #eceef5;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.customer-name-section {
+  max-width: 30%;
+  min-width: 30%;
+}
+
+.next-best-action-section {
+  max-width: 30%;
+  min-width: 30%;
+}
+
+.channel-list-container {
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  color: green;
+  /* border: 1px solid; */
+  width: 25%;
+}
+
+.channels-section {
+  max-width: 27%;
+  min-width: 27%;
+  height: 50%;
+}
+
+.nba-actions {
+  display: inline;
+  font-size: 20px;
+  /* text-align: right; */
+  /* border: 1px solid; */
+  margin-left: 30px;
+  text-align: center;
+}
+
+.nba-text {
+  width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #506a91;
+  height: 1.2em;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+i.fa.fa-check {
+  cursor: pointer;
+  color: #609a60;
+  font-size: 20px;
+}
+
+i.fa.fa-times {
+  padding-left: 5px;
+  cursor: pointer;
+  color: #b97d7d;
+  font-size: 20px;
+}
+
+.products-section {
+  max-width: 28%;
+  min-width: 28%;
+}
+
+.disabled-color {
+  color: red !important;
+}
+
+.enabled-color {
+  color: green !important;
+}
+
+.section-header {
+  font-size: 18px;
+}
+
+.key-color {
+  color: #6c6e82;
+}
+
+.val-color {
+  font-size: 15px;
+}
+
+.product-list {
+  color: black;
+  width: 100%;
+}
+
+.spent-items,
+.item-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-container {
+  padding-top: 5px;
+}
+
+.acoount-details-section {
+  max-width: 30%;
+  min-width: 30%;
+}
+
+.total-spent {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.center-item {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.spend-analysis-section {
+  max-width: 30%;
+  min-width: 30%;
+}
+
+.spnt-cntr {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.spent-analysis-cont {
+  padding-top: 5px;
+
+  .spent-item {
+    i {
+      font-size: 20px;
+      color: #506a91;
+    }
+
+    .spent-percentage {
+      font-size: 16px;
+    }
+  }
+}
+
+.account-details.offers-section {
+  min-width: 28%;
+  max-width: 28%;
+  min-height: 225px;
+  max-height: 225px;
+}
+
+.offer-list-item {
+  padding-top: 3px;
+}
+
+.product-details-section,
+.eligible-product-section {
+  max-width: 30%;
+  min-width: 30%;
+}
+
+.relationship-section {
+  max-width: 28%;
+  min-width: 28%;
+}
+
+.eligible-list,
+.row-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.eligible-list-item {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+}
+
+.propensity-item {
+  text-align: left;
+}
+
+.propensity-actions,
+.prop-actions {
+  text-align: right;
+}
